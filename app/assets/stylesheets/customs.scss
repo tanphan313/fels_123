@@ -3,14 +3,29 @@
 
 body{
   font-family: Roboto;
+  a:hover{
+    text-decoration: none;
+  }
+  a{
+    color:  #009688;
+  }
 }
 
 #my-navbar{
   background-color: white;
+  a:hover{
+    text-decoration: none;
+  }
   a{
     color:  #009688;
   }
-  a:hover{
-    text-decoration: none;
+}
+
+.login{
+  header{
+    margin: 27px 0px;
+    text-align: center;
+    color: #ef5350;
+    font-size: 47px;
   }
 }
