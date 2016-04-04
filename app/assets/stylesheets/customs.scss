@@ -1,0 +1,16 @@
+@import "materialize/components/color";
+@import "materialize";
+
+body{
+  font-family: Roboto;
+}
+
+#my-navbar{
+  background-color: white;
+  a{
+    color:  #009688;
+  }
+  a:hover{
+    text-decoration: none;
+  }
+}
