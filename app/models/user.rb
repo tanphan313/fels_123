@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  attr_accessor :remember_token
+
   has_many :activities
   has_many :lessons
   has_many :active_relationships, class_name: "Relationship",
@@ -13,4 +15,31 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: {minimum: 6}
 
   has_secure_password
+
+  class << self
+    def digest string
+      cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+        BCrypt::Engine.cost
+      BCrypt::Password.create(string, cost: cost)
+    end
+
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
+  end
+
+  def remember
+    self.remember_token = User.new_token
+    update_attributes remember_digest: User.digest(remember_token)
+  end
+
+  def authenticated? attribute, token
+    digest = send "#{attribute}_digest"
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password? token
+  end
+
+  def forget
+    update_attributes remember_digest: nil
+  end
 end
