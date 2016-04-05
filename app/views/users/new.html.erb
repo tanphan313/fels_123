@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col s4 push-s4">
+      <div class="login">
+        <header><%= t "signup" %></header>
+
+        <%= form_for @user do |f| %>
+          <%= render "shared/error_notice", object: @user %>
+
+          <div class="input-field col s12">
+            <%= f.text_field :fullname,class: "input-field", required: true %>
+            <%= f.label :fullname, t("full_name") %>
+          </div>
+
+          <div class="input-field col s12">
+            <%= f.email_field :email, required: true %>
+            <%= f.label :email, t("email") %>
+          </div>
+
+          <div class="input-field col s12">
+            <%= f.password_field :password, class: "validate", required: true %>
+            <%= f.label :password, t("password") %>
+          </div>
+
+          <div class="input-field col s12">
+            <%= f.password_field :password_confirmation, required: true %>
+            <%= f.label :password_confirmation, t("password_confirmation") %>
+          </div>
+
+          <%= f.submit t("signup"), class: "btn waves-effect waves-light" %>
+
+          <%= link_to t("have_account_login"), "#" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
