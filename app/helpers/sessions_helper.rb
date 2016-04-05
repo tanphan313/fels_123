@@ -8,7 +8,7 @@ module SessionsHelper
     cookies.permanent.signed[:current_user_id] = user.id
     cookies.permanent[:remember_token] = user.remember_token
   end
-  
+
   def current_user
     if user_id = session[:current_user_id]
       @current_user = User.find user_id
@@ -36,5 +36,9 @@ module SessionsHelper
   def logout
     forget current_user
     session.delete :current_user_id
+  end
+
+  def current_user? user
+    current_user == user
   end
 end
