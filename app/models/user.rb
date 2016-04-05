@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
 
+  mount_uploader :avatar, ImageUploader
+
   has_many :activities
   has_many :lessons
   has_many :active_relationships, class_name: "Relationship",

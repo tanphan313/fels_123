@@ -31,7 +31,12 @@ body{
   label{
     font-weight: 400;
   }
-  .btn:hover{
-    color: white !important;
+}
+.btn:hover{
+  color: white !important;
+}
+.avatar{
+  img{
+    width: 100%;
   }
 }
