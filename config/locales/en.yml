@@ -46,3 +46,5 @@ en:
   avatar: "Avatar"
   basic_info: "Basic Information"
   no_user_found: "There is no user with id: "
+  follow: "follow"
+  unfollow: "unfollow"

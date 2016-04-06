@@ -44,4 +44,16 @@ class User < ActiveRecord::Base
   def forget
     update_attributes remember_digest: nil
   end
+
+  def is_following user
+    following.include? user
+  end
+
+  def follow user
+    active_relationships.create followed_id: user.id
+  end
+
+  def unfollow user
+    active_relationships.find_by(followed_id: user.id).destroy
+  end
 end

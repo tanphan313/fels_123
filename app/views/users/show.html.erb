@@ -11,13 +11,32 @@
         <h5><%= @user.fullname %></h5>
       </div>
     </div>
-    <% if current_user? @user %>
-      <div class="row">
-        <div class="col s12">
-          <%= link_to t("edit_profile"), edit_user_path(current_user),
-            class: "btn waves-effect waves-light" %>
+    <% if logged_in? %>
+      <% if current_user? @user %>
+        <div class="row">
+          <div class="col s12">
+            <%= link_to t("edit_profile"), edit_user_path(current_user),
+              class: "btn waves-effect waves-light" %>
+          </div>
         </div>
-      </div>
+      <% else %>
+        <div class="row">
+          <div class="col s12">
+            <% if current_user.is_following @user %>
+              <%= form_for current_user.active_relationships.find_by(followed_id: @user.id),
+                method: :delete do |f| %>
+                <%= f.submit t("unfollow"),
+                  class: "btn waves-effect waves-light blue-grey lighten-3" %>
+              <% end %>
+            <% else %>
+              <%= form_for current_user.active_relationships.build do |f| %>
+                <%= hidden_field_tag :followed_id, @user.id %>
+                <%= f.submit t("follow"), class: "btn waves-effect waves-light" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <div class="col s8">
