@@ -1,0 +1,15 @@
+<%= form_for [:admin, @category] do |f| %>
+  <%= render "shared/error_notice", object: @category %>
+
+  <div class="input-field col s12">
+    <%= f.text_field :title, class: "input-field", required: true %>
+    <%= f.label :title, t("category_title") %>
+  </div>
+
+  <div class="input-field col s12">
+    <%= f.text_area :description, class: "materialize-textarea", required: true %>
+    <%= f.label :title, t("category_description") %>
+  </div>
+
+  <%= f.submit t("submit"), class: "btn waves-effect waves-light" %>
+<% end %>

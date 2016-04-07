@@ -52,6 +52,7 @@ en:
   category_title: "Title"
   category_description: "Description"
   create: "Submit Create"
+  submit: "Submit"
   create_success: "Successful Initialization"
   admin_panel: "Admin Home"
   to_admin: "Admin"
@@ -61,3 +62,5 @@ en:
   confirm: "Are you sure?"
   category_delete_success: "Category deleted"
   update: "Update"
+  no_category_found: "There is no category with id: "
+  flash_error: "Some error occur"
