@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root "admins#home"
 
-    resources :categories, only: [:new, :create]
+    resources :categories, expect: [:show, :update, :edit]
   end
 end

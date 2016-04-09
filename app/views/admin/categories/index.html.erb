@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col s12">
+      <div class="login">
+        <header><%= t "list_categories" %></header>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      <table class="striped">
+        <thead>
+          <tr>
+            <th data-field="title"><%= t "category_title" %></th>
+            <th data-field="option"><%= t "option" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @categories.each do |category| %>
+            <tr>
+              <td>
+                <%= link_to category.title, "#" %>
+              </td>
+              <td>
+                <%= link_to t("delete"), [:admin, category], method: :delete,
+                  data: {confirm: t("confirm")},
+                  class: "btn waves-effect waves-light red lighten-1" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
