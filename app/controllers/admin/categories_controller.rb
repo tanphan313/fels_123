@@ -1,4 +1,6 @@
 class Admin::CategoriesController < Admin::AdminsController
+  before_action :find_category, only: [:edit, :update]
+
   def new
     @category = Category.new
   end
@@ -23,8 +25,30 @@ class Admin::CategoriesController < Admin::AdminsController
     redirect_to :back
   end
 
+  def edit
+
+  end
+
+  def update
+    if @category.update_attributes category_params
+      flash[:success] = t "update_success"
+      redirect_to edit_admin_category_path @category
+    else
+      flash[:danger] = t "flash_error"
+      render :edit
+    end
+  end
+
   private
   def category_params
     params.require(:category).permit :title, :description
+  end
+
+  def find_category
+    @category = Category.find_by id: params[:id]
+    unless @category
+      flash[:danger] = "#{t "no_category_found"} #{params[:id]}"
+      redirect_to admin_categories_path
+    end
   end
 end
