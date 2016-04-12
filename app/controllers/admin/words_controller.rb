@@ -1,4 +1,4 @@
-class Admin::WordsController < ApplicationController
+class Admin::WordsController < Admin::AdminsController
   def create
     @word = Word.new word_params
     @category = Category.find params[:word][:category_id]
@@ -9,6 +9,12 @@ class Admin::WordsController < ApplicationController
       flash[:danger] = t "flash_error"
       redirect_to :back
     end
+  end
+
+  def destroy
+    Word.find(params[:id]).destroy
+    flash[:success] = t "word_delete_success"
+    redirect_to :back
   end
 
   private

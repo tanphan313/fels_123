@@ -21,4 +21,44 @@
       </div>
     </div>
   </div>
+  <div class="col s7">
+    <div class="card-panel">
+      <div class="login">
+        <header><%= t "list_word_title" %></header>
+        <div class="row">
+          <div class="col s12">
+            <table class="striped">
+              <thead>
+                <tr>
+                  <th class="th-title" data-field="title"><%= t "word_title" %></th>
+                  <th class="th-option" data-field="option"><%= t "option" %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @words.each do |word| %>
+                  <tr>
+                    <td>
+                      <%= link_to word.content, "#", class: "show-answer" %>
+                      <ul class="hidden_list_answer">
+                        <% word.word_answers.each do |answer| %>
+                          <li>
+                            <%= answer.content %> | <%= answer.correct %>
+                          </li>
+                        <% end %>
+                      </ul>
+                    </td>
+                    <td>
+                      <%= link_to t("delete"), [:admin, word], method: :delete,
+                        data: {confirm: t("confirm")},
+                        class: "btn waves-effect waves-light red lighten-1" %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

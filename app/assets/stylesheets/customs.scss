@@ -42,3 +42,15 @@ body{
     width: 100%;
   }
 }
+
+.hidden_list_answer{
+  display: none;
+  li{
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.th-title{
+  width: 50%;
+}
