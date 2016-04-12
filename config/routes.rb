@@ -16,5 +16,6 @@ Rails.application.routes.draw do
     root "admins#home"
 
     resources :categories
+    resources :words, only: [:create]
   end
 end
