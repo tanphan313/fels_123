@@ -73,3 +73,5 @@ en:
   delete: "Delete"
   word_title: "Origin"
   word_delete_success: "Word deleted"
+  no_word_found: "There is no word with id: "
+  update_word_title: "Update Word"

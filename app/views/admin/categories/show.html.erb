@@ -52,10 +52,15 @@
                         data: {confirm: t("confirm")},
                         class: "btn waves-effect waves-light red lighten-1" %>
                     </td>
+                    <td>
+                      <%= link_to t("update"), edit_admin_word_path(word),
+                        class: "btn waves-effect waves-light green lighten-1" %>
+                    </td>
                   </tr>
                 <% end %>
               </tbody>
             </table>
+            <%= will_paginate @words %>
           </div>
         </div>
       </div>
