@@ -71,3 +71,5 @@ en:
   true: "True"
   add_answer: "Add Answer"
   delete: "Delete"
+  word_title: "Origin"
+  word_delete_success: "Word deleted"

@@ -30,6 +30,7 @@ class Admin::CategoriesController < Admin::AdminsController
     Settings.word.number_of_answers.times do
       @word_answer = @word.word_answers.build
     end
+    @words = @category.words
   end
 
   def edit
