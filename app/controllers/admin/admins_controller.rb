@@ -2,6 +2,7 @@ class Admin::AdminsController < ApplicationController
   before_action :admin_user
 
   def home
+
   end
 
   private

@@ -1,5 +1,5 @@
 class Admin::CategoriesController < Admin::AdminsController
-  before_action :find_category, only: [:edit, :update]
+  before_action :find_category, only: [:show, :edit, :update]
 
   def new
     @category = Category.new
@@ -23,6 +23,13 @@ class Admin::CategoriesController < Admin::AdminsController
     Category.find(params[:id]).destroy
     flash[:success] = t "category_delete_success"
     redirect_to :back
+  end
+
+  def show
+    @word = Word.new
+    Settings.word.number_of_answers.times do
+      @word_answer = @word.word_answers.build
+    end
   end
 
   def edit

@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="input-field col s1">
+    <%= f.hidden_field :_destroy %>
+    <%= link_to t("delete"), "#", class: "remove_fields" %>
+  </div>
+  <div class="input-field col s9">
+    <%= f.text_field :content, class: "input-field" %>
+    <%= f.label :content, t("answer_content") %>
+  </div>
+  <div class="input-field col s2">
+    <%= f.check_box :correct, class: "filled-in" %>
+    <%= f.label :correct, t("true") %>
+  </div>
+</div>
