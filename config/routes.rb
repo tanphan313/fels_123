@@ -16,6 +16,6 @@ Rails.application.routes.draw do
 
     resources :categories
     resources :words, except: [:index, :new, :show]
-    resources :users, except: [:show, :edit, :update]
+    resources :users, except: [:show]
   end
 end
