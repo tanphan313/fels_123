@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root "static_pages#home"
 
   get "signup" => "users#new"
@@ -17,5 +16,6 @@ Rails.application.routes.draw do
 
     resources :categories
     resources :words, except: [:index, :new, :show]
+    resources :users, only: [:new, :create]
   end
 end
