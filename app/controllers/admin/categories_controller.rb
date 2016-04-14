@@ -30,7 +30,8 @@ class Admin::CategoriesController < Admin::AdminsController
     Settings.word.number_of_answers.times do
       @word_answer = @word.word_answers.build
     end
-    @words = @category.words
+    @words = @category.words.paginate page: params[:page],
+      per_page: Settings.word.number_per_page
   end
 
   def edit

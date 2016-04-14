@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col s4 push-s4">
+      <div class="login">
+        <header><%= t "update_word_title" %></header>
+        <%= form_for [:admin, @word] do |f| %>
+          <div class="input-field col s12">
+            <%= f.text_field :content, class: "input-field" %>
+            <%= f.label :content, t("content") %>
+          </div>
+          <%= f.fields_for :word_answers do |builder| %>
+            <%= render "admin/words/word_answer_fields", f: builder %>
+          <% end %>
+
+          <%= link_to_add_fields t("add_answer"), f, :word_answers %>
+          <br>
+          <%= f.submit t("submit"), class: "btn waves-effect waves-light" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
