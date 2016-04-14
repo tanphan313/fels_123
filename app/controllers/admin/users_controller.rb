@@ -13,6 +13,16 @@ class Admin::UsersController < Admin::AdminsController
     end
   end
 
+  def index
+    @users = User.paginate page: params[:page], per_page: Settings.user.number_per_page
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = t "user_delete_success"
+    redirect_to admin_users_path
+  end
+
   private
   def user_params
     params.require(:user).permit :fullname, :email, :admin,

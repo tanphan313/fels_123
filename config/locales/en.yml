@@ -78,3 +78,5 @@ en:
   role: "Role"
   member_role: "member"
   admin_role: "admin"
+  list_user: "All User"
+  user_delete_success: "User deleted"
