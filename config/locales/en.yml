@@ -81,3 +81,7 @@ en:
   list_user: "All User"
   user_delete_success: "User deleted"
   edit_user: "Update User"
+  no_category_found: "There is no category with id: %{id}"
+  start_lesson: "Start Lesson"
+  login_to_study: "Login to start lession"
+  lesson_title: "Lesson"

@@ -4,4 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include SessionsHelper
+
+  before_action :store_location_app
+
+  private
+  def store_location_app
+    store_location unless logged_in?
+  end
 end

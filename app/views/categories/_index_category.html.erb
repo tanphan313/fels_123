@@ -1,0 +1,22 @@
+<table class="striped">
+  <thead>
+    <tr>
+      <th data-field="title"><%= t "category_title" %></th>
+      <th data-field="option"><%= t "option" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td>
+          <%= link_to category.title, category %>
+        </td>
+        <td>
+          <%= link_to t("start_lesson"), "#",
+            class: "btn waves-effect waves-light" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @categories %>
