@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :relationships, only: [:create, :destroy]
+  resources :categories, only: [:show, :index]
 
   namespace :admin do
     root "admins#home"

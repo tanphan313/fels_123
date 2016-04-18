@@ -36,6 +36,7 @@ module SessionsHelper
   def logout
     forget current_user
     session.delete :current_user_id
+    session.delete :forwarding_url
   end
 
   def current_user? user
@@ -48,5 +49,13 @@ module SessionsHelper
 
   def avatar_empty? user
     user.avatar.blank?
+  end
+
+  def store_location
+    session[:forwarding_url] = request.url if request.get?
+  end
+
+  def redirect_back_or default
+    redirect_to session[:forwarding_url] || default
   end
 end

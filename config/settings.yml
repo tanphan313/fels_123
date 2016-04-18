@@ -3,3 +3,5 @@ word:
   number_per_page: 3
 user:
   number_per_page: 3
+category:
+  number_per_page: 3

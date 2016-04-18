@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :store_location_app
+
   def new
 
   end
@@ -9,7 +11,7 @@ class SessionsController < ApplicationController
       flash[:success] = "#{t "log_in_success"} #{user.fullname}"
       remember_user user if params[:session][:remember_me]
       login user
-      redirect_to root_path
+      redirect_back_or user
     else
       flash[:danger] = t "invalid_input"
       redirect_to :back
