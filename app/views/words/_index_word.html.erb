@@ -1,17 +1,12 @@
 <table class="striped">
   <thead>
     <tr>
-      <th class="th-title" data-field="title"><%= t "word_title" %></th>
+      <th class="th-title text-center" data-field="title"><%= t "word_origin" %></th>
+      <th class="text-center" data-field="title"><%= t "word_meaning" %></th>
     </tr>
   </thead>
   <tbody>
-    <% @words.each do |word| %>
-      <tr>
-        <td>
-          <%= link_to word.content, "#" %>
-        </td>
-      </tr>
-    <% end %>
+    <%= render @words %>
   </tbody>
 </table>
 <%= will_paginate @words %>

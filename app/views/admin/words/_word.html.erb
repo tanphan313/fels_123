@@ -1,0 +1,21 @@
+<tr>
+  <td>
+    <%= link_to word.content, "#", class: "show-answer" %>
+    <ul class="hidden_list_answer">
+      <% word.word_answers.each do |answer| %>
+        <li>
+          <%= answer.content %> | <%= answer.correct %>
+        </li>
+      <% end %>
+    </ul>
+  </td>
+  <td>
+    <%= link_to t("delete"), [:admin, word], method: :delete,
+      data: {confirm: t("confirm")},
+      class: "btn waves-effect waves-light red lighten-1" %>
+  </td>
+  <td>
+    <%= link_to t("update"), edit_admin_word_path(word),
+      class: "btn waves-effect waves-light green lighten-1" %>
+  </td>
+</tr>
