@@ -26,6 +26,10 @@
                   data: {confirm: t("confirm")},
                   class: "btn waves-effect waves-light red lighten-1" %>
               </td>
+              <td>
+                <%= link_to t("edit_user"), edit_admin_user_path(user),
+                  class: "btn waves-effect waves-light green lighten-1" %>
+              </td>
             </tr>
           <% end %>
         </tbody>

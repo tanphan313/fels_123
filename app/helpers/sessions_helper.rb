@@ -45,4 +45,8 @@ module SessionsHelper
   def is_admin?
     current_user.admin
   end
+
+  def avatar_empty? user
+    user.avatar.blank?
+  end
 end

@@ -1,4 +1,6 @@
 class Admin::UsersController < Admin::AdminsController
+  before_action :find_user, only: [:edit, :update]
+
   def new
     @user = User.new
   end
@@ -23,9 +25,30 @@ class Admin::UsersController < Admin::AdminsController
     redirect_to admin_users_path
   end
 
+  def edit
+
+  end
+
+  def update
+    if @user.update_attributes user_params
+      flash[:success] = t "update_success"
+      redirect_to admin_users_path
+    else
+      render :edit
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit :fullname, :email, :admin,
-      :password, :password_confirmation
+      :password, :password_confirmation, :avatar
+  end
+
+  def find_user
+    @user = User.find_by id: params[:id]
+    unless @user
+      flash[:danger] = "#{t "no_user_found"} #{params[:id]}"
+      redirect_to admin_root_path
+    end
   end
 end
