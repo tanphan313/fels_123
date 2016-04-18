@@ -1,3 +1,5 @@
 word:
   number_of_answers: 2
   number_per_page: 3
+user:
+  number_per_page: 3
