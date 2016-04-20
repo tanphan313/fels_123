@@ -9,7 +9,7 @@
 <body>
 <%= render "shared/header" %>
 <% flash.each do |notice_type, notice| %>
-  <div class="alert alert-<%= notice_type %>"><%= notice %></div>
+  <div class="card-panel card-<%= notice_type %>"><%= notice %></div>
 <% end %>
 <%= yield %>
 </body>

@@ -5,3 +5,7 @@ user:
   number_per_page: 3
 category:
   number_per_page: 3
+filter:
+  Alphabet: alphabet
+  Learned: learned
+  Not_Learned: not_learned
