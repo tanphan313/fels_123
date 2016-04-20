@@ -1,6 +1,7 @@
 word:
   number_of_answers: 2
   number_per_page: 3
+  number_per_lesson: 2
 user:
   number_per_page: 3
 category:

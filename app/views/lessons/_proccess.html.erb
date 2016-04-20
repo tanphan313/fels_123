@@ -1,0 +1,16 @@
+<div class="process-lesson card-panel">
+  <h5>
+    <%= link_to @lesson.user.fullname, @lesson.user %>
+  </h5>
+  <p class="choose-success">
+    <%= t "in_proccess" %>
+  </p>
+  <h5>
+    <i class="choose-success">
+      <i id="number-checked">
+      </i>
+      <%= t "per" %>
+      <%= @lesson.lesson_words.count %>
+    </i>
+  </h5>
+</div>

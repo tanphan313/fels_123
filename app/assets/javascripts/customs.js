@@ -15,4 +15,12 @@ $(document).ready(function(){
   $(".show-answer").click(function(){
     $(this).next().slideToggle("medium");
   });
+
+  var radio = $("input[type='radio']");
+  var countChecked = radio.filter(":checked").length;
+  $("#number-checked").html(countChecked);
+  radio.change(function(){
+    countChecked = radio.filter(":checked").length;
+    $("#number-checked").html(countChecked);
+  });
 });

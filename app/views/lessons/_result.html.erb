@@ -1,0 +1,13 @@
+<div class="login">
+  <header>
+    <h5>
+      <i class="choose-<%= @point < @lesson.lesson_words.count ? 'danger' : 'success' %>">
+        <%= @point %>
+      </i>
+      <i class="choose-success">
+        <%= t "per" %>
+        <%= @lesson.lesson_words.count %>
+      </i>
+    </h5>
+  </header>
+</div>
