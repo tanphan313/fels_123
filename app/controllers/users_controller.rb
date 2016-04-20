@@ -18,11 +18,16 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @activities = @user.activities.order(created_at: :DESC).paginate page: params[:page],
+      per_page: Settings.activities.number_per_page
   end
 
   def edit
 
+  end
+
+  def index
+    @users = User.all.paginate page: params[:page], per_page: Settings.user.number_per_page
   end
 
   def update

@@ -9,6 +9,9 @@
         <li>
           <%= link_to t("help"), "#" %>
         </li>
+        <li>
+          <%= link_to t("list_user"), users_path %>
+        </li>
         <% if logged_in? %>
           <li>
             <%= link_to t("profile"), current_user %>

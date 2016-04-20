@@ -60,4 +60,11 @@ class User < ActiveRecord::Base
     Activity.create user_id: id,
       action_type: Settings.activities.unfollowed, target_id: user.id
   end
+
+  def get_activity_items params
+    following_ids = "SELECT followed_id FROM relationships WHERE  follower_id = :user_id"
+    Activity.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
+      .order(created_at: :DESC)
+      .paginate page: params[:page], per_page: Settings.activities.number_per_page
+  end
 end
