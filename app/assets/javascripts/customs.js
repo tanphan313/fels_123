@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  $("select").material_select();
+
   $("form").on("click", ".remove_fields", function(){
     $(this).prev("input[type=hidden]").val(1);
     $(this).parent().parent().hide();

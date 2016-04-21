@@ -1,13 +1,14 @@
 @import "materialize/components/color";
 @import "materialize";
-
+$teal-base: #009688;
+$red-base: #ef5350;
 body{
   font-family: Roboto;
   a:hover{
     text-decoration: none;
   }
   a{
-    color:  #009688;
+    color:  $teal-base;
   }
 }
 
@@ -17,7 +18,7 @@ body{
     text-decoration: none;
   }
   a{
-    color:  #009688;
+    color:  $teal-base;
   }
 }
 
@@ -25,16 +26,12 @@ body{
   header{
     margin: 27px 0px;
     text-align: center;
-    color: #ef5350;
+    color: $red-base;
     font-size: 47px;
   }
   label{
     font-weight: 400;
   }
-}
-
-.btn:hover{
-  color: white !important;
 }
 
 .avatar{
@@ -62,5 +59,21 @@ body{
 }
 
 .col-btn-header{
+  text-align: center;
+}
+
+.card-danger{
+  background-color: #ef9a9a;
+}
+
+.card-success{
+  background-color: #a5d6a7;
+}
+
+.select-wrapper{
+  color: $teal-base;
+}
+
+.text-center{
   text-align: center;
 }

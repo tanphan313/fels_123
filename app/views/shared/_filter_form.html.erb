@@ -1,0 +1,17 @@
+<%= form_for words_path, method: :get, remote: true do |f| %>
+  <div class="input-field col s3">
+    <%= select_tag :category_id,
+      options_for_select(@categories.collect{|category| [category.title, category.id]},
+      params[:category_id]), include_blank: t("all_word") %>
+  </div>
+  <% Settings.filter.each do |key, value| %>
+    <div class="input-field col s3">
+      <%= radio_button_tag :filter_params, value,
+        checked = (params[:filter_params] == value || params[:filter_params].blank?) %>
+      <%= label_tag "filter_params_#{value}", key %>
+    </div>
+  <% end %>
+  <div class="input-field col s4">
+    <%= f.submit t("submit_filter"), class: "btn waves-effect waves-light" %>
+  </div>
+<% end %>
