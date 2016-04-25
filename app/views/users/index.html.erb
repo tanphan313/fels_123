@@ -1,0 +1,49 @@
+<div class="login">
+  <header>
+    <h3>
+      <%= t "list_user" %>
+    </h3>
+  </header>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <table class="striped">
+        <thead>
+        <tr>
+          <th data-field="title"><%= t "full_name" %></th>
+          <th data-field="option"><%= t "follow" %></th>
+        </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td>
+                <%= link_to user.fullname, user %>
+              </td>
+              <td>
+                <% if logged_in? %>
+                  <% if current_user.is_following user %>
+                    <%= form_for current_user.active_relationships.find_by(followed_id: user.id),
+                       method: :delete do |f| %>
+                      <%= f.submit t("unfollow"),
+                        class: "btn waves-effect waves-light blue-grey lighten-3" %>
+                    <% end %>
+                  <% else %>
+                    <%= form_for current_user.active_relationships.build do |f| %>
+                      <%= hidden_field_tag :followed_id, user.id %>
+                      <%= f.submit t("follow"), class: "btn waves-effect waves-light" %>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <%= link_to t("login_to_use"), login_path %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%= will_paginate %>
+</div>

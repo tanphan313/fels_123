@@ -1,11 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col s3 avatar_admin_update">
-      <% if avatar_empty? @user %>
-        <%= image_tag "user.ico" %>
-      <% else %>
-        <%= image_tag @user.avatar %>
-      <% end %>
+      <%= show_avatar @user %>
     </div>
     <div class="col s4 push-s1">
       <div class="login">

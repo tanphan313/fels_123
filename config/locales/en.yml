@@ -95,3 +95,8 @@ en:
   correct: "Correct"
   in_proccess: "In Proccess"
   base_app: "Base App"
+  learned_lesson_html: "%{user_name} Learned %{word_count} words in %{lesson} of category %{category}"
+  followed_user_html: "%{user_name} Followed %{user}"
+  unfollowed_user_html: "%{user_name} Unfollowed %{user}"
+  activities: "Activities"
+  login_to_use: "Login to follow user"
