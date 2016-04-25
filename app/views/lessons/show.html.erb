@@ -1,0 +1,26 @@
+<div class="login">
+  <header>
+    <h3>
+      <%= @category.title %>
+    </h3>
+  </header>
+</div>
+<%= render "proccess" %>
+<%= render "result" %>
+<div class="container">
+  <div class="row">
+    <%= form_for [@category, @lesson] do |f| %>
+      <div class="input-field col s12">
+        <%= f.fields_for :lesson_words do |builder| %>
+          <%= render "word_answers", builder: builder %>
+        <% end %>
+      </div>
+      <div class="input-field col s4 push-s4">
+        <button class="btn waves-effect waves-light">
+          <%= f.submit t("submit") %>
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>

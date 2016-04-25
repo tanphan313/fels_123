@@ -3,7 +3,7 @@
     <%= link_to category.title, category %>
   </td>
   <td>
-    <%= link_to t("start_lesson"), "#",
+    <%= link_to t("start_lesson"), category_lessons_path(category), method: :post,
       class: "btn waves-effect waves-light" %>
   </td>
 </tr>

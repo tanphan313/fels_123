@@ -2,6 +2,10 @@
 @import "materialize";
 $teal-base: #009688;
 $red-base: #ef5350;
+$blue-success: #2196F3;
+$red-danger: #F44336;
+$green-notice-success: #c8e6c9;
+$red-notice-danger: #ef9a9a;
 body{
   font-family: Roboto;
   a:hover{
@@ -63,11 +67,13 @@ body{
 }
 
 .card-danger{
-  background-color: #ef9a9a;
+  background-color: $red-notice-danger;
+  color: white;
 }
 
 .card-success{
-  background-color: #a5d6a7;
+  background-color: $green-notice-success;
+  color: white;
 }
 
 .select-wrapper{
@@ -76,4 +82,45 @@ body{
 
 .text-center{
   text-align: center;
+}
+
+.word-content{
+  color: $teal-base;
+  text-align: center;
+  vertical-align: middle;
+  font-size: xx-large;
+}
+
+.word-answer{
+  text-align: right;
+  vertical-align: middle;
+  list-style: none;
+  color: $red-base;
+  font-size: larger;
+  label{
+    top: 7.7px;
+  }
+}
+
+.process-lesson{
+  position: fixed;
+  left: 3px;
+  width: 180px;
+  text-align: center;
+  padding: 0px;
+}
+
+.break-line{
+  border-bottom-style: solid;
+  border-bottom-color: #999999;
+  border-bottom-width: 0.3px;
+  padding-bottom: 23px;
+}
+
+.choose-success{
+  color: $blue-success;
+}
+
+.choose-danger{
+  color: $red-danger;
 }

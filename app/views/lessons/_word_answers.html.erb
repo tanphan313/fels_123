@@ -1,0 +1,28 @@
+<div class="row break-line">
+  <div class="word-content input-field col s1">
+    <% if builder.object.word_answer.present? && builder.object.word_answer.correct %>
+      <i class="material-icons choose-success">thumb_up</i>
+    <% else %>
+      <i class="material-icons choose-danger">thumb_down</i>
+    <% end %>
+  </div>
+  <div class="word-content input-field col s4">
+    <%= builder.object.word.content %>
+  </div>
+  <div class="input-field col s5 word-answer">
+    <%= builder.hidden_field :word_id, value: builder.object.word.id %>
+    <% builder.object.word.word_answers.each do |ans| %>
+      <li>
+        <% if builder.object.word_answer.present? && ans.correct? %>
+          <li class="material-icons choose-success">
+            done
+          </li>
+        <% end %>
+        <%= ans.content %>
+        <%= builder.radio_button :word_answer_id, ans.id,
+          id: "lesson_word_answer_id_#{ans.id}" %>
+        <label for="lesson_word_answer_id_<%= ans.id %>"></label>
+      </li>
+    <% end %>
+  </div>
+</div>
