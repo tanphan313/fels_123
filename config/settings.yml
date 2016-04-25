@@ -10,3 +10,8 @@ filter:
   Alphabet: alphabet
   Learned: learned
   Not_Learned: not_learned
+activities:
+  learned: 1
+  followed: 2
+  unfollowed: 3
+  number_per_page: 3

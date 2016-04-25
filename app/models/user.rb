@@ -51,9 +51,13 @@ class User < ActiveRecord::Base
 
   def follow user
     active_relationships.create followed_id: user.id
+    Activity.create user_id: id,
+      action_type: Settings.activities.followed, target_id: user.id
   end
 
   def unfollow user
     active_relationships.find_by(followed_id: user.id).destroy
+    Activity.create user_id: id,
+      action_type: Settings.activities.unfollowed, target_id: user.id
   end
 end

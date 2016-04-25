@@ -8,6 +8,7 @@ class Lesson < ActiveRecord::Base
   accepts_nested_attributes_for :lesson_words, allow_destroy: true
 
   after_create :create_lesson_word
+  after_create :create_activity
 
   validate :check_number_word
 
@@ -21,6 +22,11 @@ class Lesson < ActiveRecord::Base
     self.category.words.not_learned(user).random_questions.each do |word|
       self.lesson_words.create word_id: word.id
     end
+  end
+
+  def create_activity
+    Activity.create user_id: user.id,
+      action_type: Settings.activities.learned, target_id: id
   end
 
   def check_number_word
