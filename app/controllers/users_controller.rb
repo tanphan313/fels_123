@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
 
-  before_action :find_user, only: [:show, :edit, :update]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :find_user, only: [:show, :edit, :update, :edit_password, :update_password]
+  before_action :correct_user, only: [:edit, :update, :edit_password, :update_password]
+  before_action :validate_old_password, only: [:update_password]
 
   def new
-    @user = User.new
+    if logged_in?
+      redirect_to root_path
+    else
+      @user = User.new
+    end
   end
 
   def create
@@ -23,6 +28,10 @@ class UsersController < ApplicationController
   end
 
   def edit
+
+  end
+
+  def edit_password
 
   end
 
@@ -50,7 +59,11 @@ class UsersController < ApplicationController
   end
 
   def find_user
-    @user = User.find_by id: params[:id]
+    if params[:user_id]
+      @user = User.find_by id: params[:user_id]
+    else
+      @user = User.find_by id: params[:id]
+    end
     unless @user
       flash[:danger] = "#{t "no_user_found"} #{params[:id]}"
       redirect_to root_path

@@ -4,13 +4,18 @@ class Admin::WordsController < Admin::AdminsController
   def create
     @word = Word.new word_params
     @category = Category.find params[:word][:category_id]
+    @words = @category.words.paginate page: params[:page],
+      per_page: Settings.word.number_per_page
     if @word.save
       flash[:success] = t "create_success"
-      redirect_to :back
+      redirect_to [:admin, @category]
     else
-      flash[:danger] = t "flash_error"
-      redirect_to :back
+      render "admin/categories/show", id: @category.id
     end
+  end
+
+  def show
+
   end
 
   def destroy
@@ -24,12 +29,16 @@ class Admin::WordsController < Admin::AdminsController
   end
 
   def update
-    if @word.update_attributes word_params
-      flash[:success] = t "update_success"
-      redirect_to [:admin, @word.category]
+    @word.validate_word word_params
+    if @word.errors.count > 0
+      render :edit
     else
-      flash[:danger] = t "flash_error"
-      redirect_to :back
+      if @word.update_attributes word_params
+        flash[:success] = t "update_success"
+        redirect_to [:admin, @word.category]
+      else
+        render :edit
+      end
     end
   end
 
