@@ -14,7 +14,7 @@
         </li>
         <% if logged_in? %>
           <li>
-            <%= link_to t("profile"), current_user %>
+            <%= link_to current_user.fullname, current_user %>
           </li>
           <li>
             <%= link_to t("logout"), logout_path, method: :delete %>

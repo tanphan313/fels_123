@@ -1,0 +1,5 @@
+<%= form_for current_user.active_relationships.find_by(followed_id: user.id),
+  method: :delete, remote: true do |f| %>
+  <%= f.submit t("unfollow"),
+    class: "btn waves-effect waves-light blue-grey lighten-3" %>
+<% end %>
