@@ -1,7 +1,7 @@
 <tr>
   <td>
-    <%= link_to word.content, "#", class: "show-answer" %>
-    <ul class="hidden_list_answer">
+    <p class="show-answer"><%= word.content %></p>
+    <ul class="hidden_list_answer choose-success">
       <% word.word_answers.each do |answer| %>
         <li>
           <%= answer.content %> | <%= answer.correct %>

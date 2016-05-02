@@ -16,7 +16,10 @@
     </div>
     <div class="card-panel">
       <div class="login">
-        <header><%= t "create_question" %></header>
+        <header>
+          <%= t "create_question" %>
+        </header>
+        <%= render "shared/error_notice", object: @word %>
         <%= render "admin/words/form" %>
       </div>
     </div>
