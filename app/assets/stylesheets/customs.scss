@@ -125,3 +125,16 @@ body{
 .choose-danger{
   color: $red-danger;
 }
+
+.btn{
+  a{
+    color: white;
+  }
+}
+
+.show-answer{
+  color: $teal-base;
+}
+.show-answer:hover{
+  cursor: pointer;
+}

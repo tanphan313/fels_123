@@ -21,6 +21,7 @@ class LessonsController < ApplicationController
 
   def update
     if @lesson.update_attributes lesson_params
+      @lesson.create_activity
       flash[:success] = t "update_success"
       redirect_to category_lesson_path @category, @lesson
     else
@@ -31,11 +32,19 @@ class LessonsController < ApplicationController
 
   private
   def find_category
-    @category = Category.find params[:category_id]
+    @category = Category.find_by id: params[:category_id]
+    unless @category
+      flash[:danger] = t "no_category_found", id: params[:id]
+      redirect_to root_path
+    end
   end
 
   def find_lesson
-    @lesson = Lesson.find params[:id]
+    @lesson = Lesson.find_by id: params[:id]
+    unless @lesson
+      flash[:danger] = t "no_lesson_found", id: params[:id]
+      redirect_to root_path
+    end
   end
 
   def correct_user
