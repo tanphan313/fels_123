@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, ImageUploader
 
-  has_many :activities
-  has_many :lessons
+  has_many :activities, dependent: :destroy
+  has_many :lessons, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship",
     foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name: "Relationship",
@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   validates :fullname, presence: true, length: {maximum: 50}
   validates :email, presence: true, length: {maximum: 255}
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
   has_secure_password
 
@@ -66,5 +66,9 @@ class User < ActiveRecord::Base
     Activity.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
       .order(created_at: :DESC)
       .paginate page: params[:page], per_page: Settings.activities.number_per_page
+  end
+
+  def learned? lesson
+    Activity.find_by(user_id: id, target_id: lesson.id).present?
   end
 end

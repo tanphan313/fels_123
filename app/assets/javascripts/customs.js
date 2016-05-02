@@ -40,6 +40,11 @@ $(document).ready(function(){
     validateWordForm();
   });
 
+  $("form").on("click", ".checkbox-changed", function(){
+    $("input[type='checkbox']").prop("checked", false);
+    $(this).prop("checked", true);
+  });
+
 });
 
 function validateWordForm(){
@@ -65,9 +70,4 @@ function validateWordForm(){
   }else{
     $("#error-number-correct-answer").html(null);
   }
-}
-
-function changeCheckBox(id){
-  $("input[type='checkbox']").prop("checked", false);
-  document.getElementById(id).checked = true;
 }

@@ -15,12 +15,24 @@
           <%= render "word_answers", builder: builder %>
         <% end %>
       </div>
+      <% unless current_user.learned(@lesson) || !current_user?(@lesson.user) %>
+        <div class="input-field col s4 push-s4">
+          <button class="btn waves-effect waves-light">
+            <%= f.submit t("submit") %>
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <% if current_user.learned(@lesson) || !current_user?(@lesson.user) %>
+    <div class="row">
       <div class="input-field col s4 push-s4">
         <button class="btn waves-effect waves-light">
-          <%= f.submit t("submit") %>
+          <%= link_to t("learn_more"), @category %>
           <i class="material-icons right">send</i>
         </button>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
