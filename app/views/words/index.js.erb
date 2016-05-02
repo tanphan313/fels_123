@@ -1,1 +1,5 @@
 $("#index_word").html("<%= j render "index_word" %>");
+<% if @words_number.present? %>
+  $("#word_count").html("<%= @words_number %> <%= t "per" %>");
+<% end %>
+$("#word_total").html("<%= @total_word %>")

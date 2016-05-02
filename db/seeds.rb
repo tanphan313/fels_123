@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Activity.where("target_id = ? AND (action_type = ? OR action_type = ?)",
+  3, Settings.activities.followed, Settings.activities.unfollowed).destroy_all

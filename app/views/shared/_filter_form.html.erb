@@ -2,12 +2,12 @@
   <div class="input-field col s3">
     <%= select_tag :category_id,
       options_for_select(@categories.collect{|category| [category.title, category.id]},
-      params[:category_id]), include_blank: t("all_word") %>
+      params[:category_id]), include_blank: t("all_category") %>
   </div>
   <% Settings.filter.each do |key, value| %>
     <div class="input-field col s3">
       <%= radio_button_tag :filter_params, value,
-        checked = (params[:filter_params] == value || params[:filter_params].blank?) %>
+        checked = (params[:filter_params] == value) %>
       <%= label_tag "filter_params_#{value}", key %>
     </div>
   <% end %>

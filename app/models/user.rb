@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
     update_attributes remember_digest: nil
   end
 
-  def is_following user
+  def is_following? user
     following.include? user
   end
 
