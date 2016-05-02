@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::AdminsController
-  before_action :find_user, only: [:edit, :update]
+  before_action :find_user, only: [:edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -20,7 +20,8 @@ class Admin::UsersController < Admin::AdminsController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    Activity.destroy_user(@user, Settings.activities.followed, Settings.activities.unfollowed).destroy_all
+    @user.destroy
     flash[:success] = t "user_delete_success"
     redirect_to admin_users_path
   end

@@ -16,9 +16,11 @@ class WordsController < ApplicationController
       @words = Word.by_category(params[:category_id]).send(params[:filter_params], current_user)
         .paginate page: params[:page],
         per_page: Settings.word.number_per_page
+      @words_number = @words.count
     else
       @words = Word.by_category(params[:category_id]).paginate page: params[:page],
         per_page: Settings.word.number_per_page
     end
+    @total_word = Word.by_category(params[:category_id]).count
   end
 end

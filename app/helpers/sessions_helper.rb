@@ -107,7 +107,7 @@ module SessionsHelper
 
   def show_avatar user
     if avatar_empty? user
-      image_tag "user.ico"
+      image_tag "user.png"
     else
       image_tag user.avatar
     end

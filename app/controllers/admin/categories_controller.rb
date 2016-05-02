@@ -1,5 +1,5 @@
 class Admin::CategoriesController < Admin::AdminsController
-  before_action :find_category, only: [:show, :edit, :update]
+  before_action :find_category, only: [:show, :edit, :update, :destroy]
 
   def new
     @category = Category.new
@@ -21,7 +21,10 @@ class Admin::CategoriesController < Admin::AdminsController
   end
 
   def destroy
-    Category.find(params[:id]).destroy
+    @category.lessons.each do |lesson|
+      Activity.destroy_lesson(lesson, Settings.activities.learned).destroy_all
+    end
+    @category.destroy
     flash[:success] = t "category_delete_success"
     redirect_to :back
   end

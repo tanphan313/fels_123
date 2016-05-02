@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :store_location_app
 
   def new
-
+    redirect_to root_path if logged_in?
   end
 
   def create

@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
 
-  before_action :find_user, only: [:show, :edit, :update]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :find_user, only: [:show, :edit, :update, :edit_password, :update_password]
+  before_action :correct_user, only: [:edit, :update, :edit_password, :update_password]
+  before_action :validate_old_password, only: [:update_password]
 
   def new
-    @user = User.new
+    if logged_in?
+      redirect_to root_path
+    else
+      @user = User.new
+    end
   end
 
   def create
