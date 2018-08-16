@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col s4 push-s4">
+      <div class="login">
+        <header><%= t "change_password" %></header>
+
+        <%= form_for @user, url: password_path do |f| %>
+          <%= render "shared/error_notice", object: @user %>
+
+          <div class="input-field col s12">
+            <%= f.password_field :old_password, class: "validate", required: true %>
+            <%= f.label :old_password, t("old_password") %>
+          </div>
+
+          <div class="input-field col s12">
+            <%= f.password_field :password, class: "validate", required: true %>
+            <%= f.label :password, t("password") %>
+          </div>
+
+          <div class="input-field col s12">
+            <%= f.password_field :password_confirmation, required: true %>
+            <%= f.label :password_confirmation, t("password_confirmation") %>
+          </div>
+
+          <%= f.submit t("edit_profile"), class: "btn waves-effect waves-light" %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

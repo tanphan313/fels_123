@@ -1,0 +1,8 @@
+<tr>
+  <td class="text-center">
+    <%= link_to word.content, "#" %>
+  </td>
+  <td class="text-center">
+    <%= link_to word.word_answers.find_by(correct: true).content, "#" %>
+  </td>
+</tr>

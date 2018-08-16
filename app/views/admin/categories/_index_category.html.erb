@@ -1,0 +1,12 @@
+<table class="striped">
+  <thead>
+    <tr>
+      <th data-field="title"><%= t "category_title" %></th>
+      <th data-field="option"><%= t "option" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @categories %>
+  </tbody>
+</table>
+<%= will_paginate @categories %>

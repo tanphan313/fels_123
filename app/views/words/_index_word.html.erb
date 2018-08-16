@@ -1,0 +1,12 @@
+<table class="striped">
+  <thead>
+    <tr>
+      <th class="th-title text-center" data-field="title"><%= t "word_origin" %></th>
+      <th class="text-center" data-field="title"><%= t "word_meaning" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @words %>
+  </tbody>
+</table>
+<%= will_paginate @words %>

@@ -1,0 +1,29 @@
+<div class="login">
+  <header>
+    <h3>
+      <%= t "list_word_title" %>
+    </h3>
+  </header>
+</div>
+<div class="login">
+  <header>
+    <h5 class="choose-success">
+      <i id="word_count">
+        <%= @words_number %>
+      </i>
+      <i id="word_total">
+        <%= @total_word %>
+      </i>
+    </h5>
+  </header>
+</div>
+<div class="row">
+  <div class="col s12" id="filter_form">
+    <%= render "shared/filter_form" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12" id="index_word">
+    <%= render "index_word" %>
+  </div>
+</div>

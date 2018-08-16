@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col s5">
+    <div class="card-panel teal">
+      <span class="white-text">
+        <h4>
+          <%= @category.title %>
+        </h4>
+      </span>
+    </div>
+    <div class="card-panel teal">
+      <span class="white-text">
+        <h6>
+          <%= @category.description %>
+        </h6>
+      </span>
+    </div>
+    <div class="card-panel">
+      <div class="login">
+        <header>
+          <%= t "create_question" %>
+        </header>
+        <%= render "shared/error_notice", object: @word %>
+        <%= render "admin/words/form" %>
+      </div>
+    </div>
+  </div>
+  <div class="col s7">
+    <div class="card-panel">
+      <div class="login">
+        <header><%= t "list_word_title" %></header>
+        <div class="row">
+          <div class="col s12">
+            <%= render "admin/words/index_word" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

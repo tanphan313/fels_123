@@ -1,0 +1,111 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+  home: "Home"
+  help: "Help"
+  e_learning_system: "E-learning System"
+  signup: "Sign Up"
+  sign_up_success: "Sign Up Successfully"
+  login: "Log In"
+  log_in_success: "Log In Successfully, Welcome "
+  invalid_input: "Email or Password is incorrect"
+  remember_me: "Remember me"
+  logout: "Log Out"
+  log_out_success: "Log Out Successfully"
+  form_contain_error: "The form contains"
+  error: "errors"
+  full_name: "Full Name"
+  email: "Email"
+  password: "Password"
+  password_confirmation: "Password Confirmation"
+  have_account_login: "Have an account?Login"
+  have_no_acount_signup: "New member?Signup"
+  profile: "Profile"
+  edit_profile: "Update Profile"
+  update_success: "Update Successfully"
+  avatar: "Avatar"
+  basic_info: "Basic Information"
+  no_user_found: "There is no user with id: "
+  follow: "follow"
+  unfollow: "unfollow"
+  new_category: "New Category"
+  category_title: "Title"
+  category_description: "Description"
+  create: "Submit Create"
+  submit: "Submit"
+  create_success: "Successful Initialization"
+  admin_panel: "Admin Home"
+  to_admin: "Admin"
+  list_categories: "List Categories"
+  option: "Option"
+  delete: "Delete"
+  confirm: "Are you sure?"
+  category_delete_success: "Category deleted"
+  update: "Update"
+  no_category_found: "There is no category with id: "
+  flash_error: "Some error occur"
+  list_word_title: "List Words"
+  create_question: "New Word"
+  content: "Content"
+  answer_content: "Answer Content"
+  true: "True"
+  add_answer: "Add Answer"
+  word_title: "Origin"
+  word_delete_success: "Word deleted"
+  no_word_found: "There is no word with id: "
+  update_word_title: "Update Word"
+  new_user_admin_link: "Create User"
+  role: "Role"
+  member_role: "member"
+  admin_role: "admin"
+  list_user: "All User"
+  user_delete_success: "User deleted"
+  edit_user: "Update User"
+  no_category_found: "There is no category with id: %{id}"
+  start_lesson: "Start Lesson"
+  login_to_study: "Login to start lession"
+  lesson_title: "Lesson"
+  word_origin: "Word Origin"
+  word_meaning: "Word Meaning"
+  all_word: "All Word"
+  submit_filter: "Filter"
+  per: "/"
+  not_enough_words: "not enough for lesson"
+  not_owner: "You can't change this lesson"
+  correct: "Correct"
+  in_proccess: "In Proccess"
+  base_app: "Base App"
+  learned_lesson_html: "%{user_name} Learned %{word_count} words in %{lesson} of category %{category}"
+  followed_user_html: "%{user_name} Followed %{user}"
+  unfollowed_user_html: "%{user_name} Unfollowed %{user}"
+  activities: "Activities"
+  login_to_use: "Login to follow user"
+  learn_more: "Learn more from this category"
+  all_category: "All categories"
+  at_least_one_correct: "Must have one answer correct"
+  at_least_two_answers: "Must have at least two answers"
+  change_password: "Change password"
+  old_password: "Old password"
+  password_not_match: " is not match"
+  canot_be_blank: " can not be blank"
+  no_lesson_found: "There is no lesson with id: %{id}"

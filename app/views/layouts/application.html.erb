@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= t "base_app" %></title>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag "rad-logo.png" %>
+</head>
+<body>
+<%= render "shared/header" %>
+<% flash.each do |notice_type, notice| %>
+  <div class="card-panel card-<%= notice_type %>"><%= notice %></div>
+<% end %>
+<%= yield %>
+</body>
+</html>

@@ -1,0 +1,17 @@
+word:
+  number_of_answers: 2
+  number_per_page: 19
+  number_per_lesson: 3
+user:
+  number_per_page: 19
+category:
+  number_per_page: 19
+filter:
+  Alphabet: alphabet
+  Learned: learned
+  Not_Learned: not_learned
+activities:
+  learned: 1
+  followed: 2
+  unfollowed: 3
+  number_per_page: 9

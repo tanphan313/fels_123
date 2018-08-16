@@ -1,0 +1,38 @@
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper" id="my-navbar">
+      <%= link_to t("e_learning_system"), root_path, class: "brand-logo" %>
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <%= link_to t("home"), root_path %>
+        </li>
+        <li>
+          <%= link_to t("help"), "#" %>
+        </li>
+        <li>
+          <%= link_to t("list_user"), users_path %>
+        </li>
+        <% if logged_in? %>
+          <li>
+            <%= link_to current_user.fullname, current_user %>
+          </li>
+          <li>
+            <%= link_to t("logout"), logout_path, method: :delete %>
+          </li>
+          <% if is_admin? %>
+            <li>
+              <%= link_to t("to_admin"), admin_root_path %>
+            </li>
+          <% end %>
+        <% else %>
+          <li>
+            <%= link_to t("login"), login_path %>
+          </li>
+          <li>
+            <%= link_to t("signup"), signup_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</div>

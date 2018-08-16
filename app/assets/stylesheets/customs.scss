@@ -1,0 +1,140 @@
+@import "materialize/components/color";
+@import "materialize";
+$teal-base: #009688;
+$red-base: #ef5350;
+$blue-success: #2196F3;
+$red-danger: #F44336;
+$green-notice-success: #c8e6c9;
+$red-notice-danger: #ef9a9a;
+body{
+  font-family: Roboto;
+  a:hover{
+    text-decoration: none;
+  }
+  a{
+    color:  $teal-base;
+  }
+}
+
+#my-navbar{
+  background-color: white;
+  a:hover{
+    text-decoration: none;
+  }
+  a{
+    color:  $teal-base;
+  }
+}
+
+.login{
+  header{
+    margin: 27px 0px;
+    text-align: center;
+    color: $red-base;
+    font-size: 47px;
+  }
+  label{
+    font-weight: 400;
+  }
+}
+
+.avatar{
+  img{
+    width: 100%;
+    border-radius: 4px;
+  }
+}
+.avatar_admin_update{
+  padding-top: 43px !important;
+  img{
+    width: 100%;
+  }
+}
+
+.hidden_list_answer{
+  display: none;
+  li{
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.th-title{
+  width: 50%;
+}
+
+.col-btn-header{
+  text-align: center;
+}
+
+.card-danger{
+  background-color: $red-notice-danger;
+  color: white;
+}
+
+.card-success{
+  background-color: $green-notice-success;
+  color: white;
+}
+
+.select-wrapper{
+  color: $teal-base;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.word-content{
+  color: $teal-base;
+  text-align: center;
+  vertical-align: middle;
+  font-size: xx-large;
+}
+
+.word-answer{
+  text-align: right;
+  vertical-align: middle;
+  list-style: none;
+  color: $red-base;
+  font-size: larger;
+  label{
+    top: 7.7px;
+  }
+}
+
+.process-lesson{
+  position: fixed;
+  left: 3px;
+  width: 180px;
+  text-align: center;
+  padding: 0px;
+}
+
+.break-line{
+  border-bottom-style: solid;
+  border-bottom-color: #999999;
+  border-bottom-width: 0.3px;
+  padding-bottom: 23px;
+}
+
+.choose-success{
+  color: $blue-success;
+}
+
+.choose-danger{
+  color: $red-danger;
+}
+
+.btn{
+  a{
+    color: white;
+  }
+}
+
+.show-answer{
+  color: $teal-base;
+}
+.show-answer:hover{
+  cursor: pointer;
+}

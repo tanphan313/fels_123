@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col s5">
+    <div class="card-panel teal">
+      <span class="white-text">
+        <h4>
+          <%= @category.title %>
+        </h4>
+      </span>
+    </div>
+    <div class="card-panel teal">
+      <span class="white-text">
+        <h6>
+          <%= @category.description %>
+        </h6>
+      </span>
+    </div>
+    <div class="card-panel">
+      <span>
+        <h6>
+          <% if logged_in? %>
+            <%= link_to t("start_lesson"), category_lessons_path(@category), method: :post,
+              class: "btn waves-effect waves-light" %>
+          <% else %>
+            <%= link_to t("login_to_study"), login_path %>
+          <% end %>
+        </h6>
+      </span>
+    </div>
+  </div>
+  <div class="col s7">
+    <div class="card-panel">
+      <div class="login">
+        <header><%= t "list_word_title" %></header>
+        <div class="row">
+          <div class="col s12">
+            <%= render "words/index_word" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col s12">
+      <div class="login">
+        <header><%= t "admin_panel" %></header>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s4">
+      <%= link_to t("new_category"), new_admin_category_path,
+        class: "btn waves-effect waves-light" %>
+    </div>
+    <div class="col s4">
+      <%= link_to t("list_categories"), admin_categories_path,
+        class: "btn waves-effect waves-light" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s4">
+      <%= link_to t("new_user_admin_link"), new_admin_user_path,
+        class: "btn waves-effect waves-light" %>
+    </div>
+    <div class="col s4">
+      <%= link_to t("list_user"), admin_users_path,
+        class: "btn waves-effect waves-light" %>
+    </div>
+  </div>
+</div>
